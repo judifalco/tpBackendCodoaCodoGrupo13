@@ -8,6 +8,8 @@ const mysql = require('mysql');
 
 const app = express();
 const port = 3000;
+var os = require("os");
+var hostname = os.hostname();
 
 // Configuración de la conexión a MySQL
 const connection = mysql.createConnection({
