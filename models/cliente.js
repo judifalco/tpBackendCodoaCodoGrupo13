@@ -2,10 +2,10 @@ const mysql = require('mysql');
 
 // Configuración de la conexión a la base de datos
 const connection = mysql.createConnection({
-    host: 'mysql-backendgrupo13cac2024.alwaysdata.net',
-    user: '367920_mjdifalco',
-    password: 'Berserker!Rulez1992',
-    database: 'backendgrupo13cac2024_tiendalibros'
+    host: 'mysql-cac2024grupo13.alwaysdata.net',
+    user: '368113',
+    password: 'CaC2024',
+    database: 'cac2024grupo13_tiendalibros'
 });
 
 connection.connect((err) => {
