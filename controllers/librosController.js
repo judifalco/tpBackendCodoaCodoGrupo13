@@ -38,7 +38,7 @@ function actualizarLibro(req, res) {
     Libro.actualizarLibro(libroId, libroData, (err, result) => {
         if (err) {
             console.error('Error al actualizar el libro:', err);
-            res.status(500).send('Error al actualizar el libro');
+            res.status(500).send('Error al actualizar el libro',err);
             return;
         }
         res.json({ message: 'Libro actualizado exitosamente', libroId: libroId });
