@@ -7,7 +7,7 @@ function obtenerClientes(req, res) {
     Cliente.obtenerClientes((err, clientes) => {
         if (err) {
             console.error('Error al obtener los clientes:', err);
-            res.status(500).send('Error al obtener los clientes');
+            res.status(500).send('Error al obtener los clientes', err);
             return;
         }
         res.json(clientes);
@@ -22,7 +22,7 @@ function crearCliente(req, res) {
     Cliente.crearCliente(clienteData, (err, result) => {
         if (err) {
             console.error('Error al crear un nuevo cliente:', err);
-            res.status(500).send('Error al crear un nuevo cliente');
+            res.status(500).send('Error al crear un nuevo cliente', err);
             return;
         }
         res.status(201).json({ message: 'Cliente creado exitosamente', id_cliente: result.insertId });
@@ -38,7 +38,7 @@ function actualizarCliente(req, res) {
     Cliente.actualizarCliente(id_cliente, clienteData, (err, result) => {
         if (err) {
             console.error('Error al actualizar el cliente:', err);
-            res.status(500).send('Error al actualizar el cliente');
+            res.status(500).send('Error al actualizar el cliente', err);
             return;
         }
         res.json({ message: 'Cliente actualizado exitosamente', id_cliente: id_cliente });
@@ -52,7 +52,7 @@ function eliminarCliente(req, res) {
     Cliente.eliminarCliente(id_cliente, (err, result) => {
         if (err) {
             console.error('Error al eliminar el cliente:', err);
-            res.status(500).send('Error al eliminar el cliente');
+            res.status(500).send('Error al eliminar el cliente', err);
             return;
         }
         res.json({ message: 'Cliente eliminado exitosamente', id_cliente: id_cliente });
