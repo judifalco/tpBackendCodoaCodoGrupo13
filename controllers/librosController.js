@@ -16,8 +16,8 @@ function obtenerLibros(req, res) {
 
 // Crear un nuevo libro
 function crearLibro(req, res) {
-    const { titulo, genero, precio, autor_id } = req.body;
-    const libroData = { titulo, genero, precio, autor_id };
+    const { titulo, genero, precio, id_autor } = req.body;
+    const libroData = { titulo, genero, precio, id_autor };
 
     Libro.crearLibro(libroData, (err, result) => {
         if (err) {
@@ -25,37 +25,37 @@ function crearLibro(req, res) {
             res.status(500).send('Error al crear un nuevo libro');
             return;
         }
-        res.status(201).json({ message: 'Libro creado exitosamente', libroId: result.insertId });
+        res.status(201).json({ message: 'Libro creado exitosamente', id_libro: result.insertId });
     });
 }
 
 // Actualizar un libro existente
 function actualizarLibro(req, res) {
-    const libroId = req.params.id;
-    const { titulo, genero, precio, autor_id } = req.body;
-    const libroData = { titulo, genero, precio, autor_id };
+    const id_libro = req.params.id;
+    const { titulo, genero, precio, id_autor } = req.body;
+    const libroData = { titulo, genero, precio, id_autor };
 
-    Libro.actualizarLibro(libroId, libroData, (err, result) => {
+    Libro.actualizarLibro(id_libro, libroData, (err, result) => {
         if (err) {
             console.error('Error al actualizar el libro:', err);
             res.status(500).send('Error al actualizar el libro',err);
             return;
         }
-        res.json({ message: 'Libro actualizado exitosamente', libroId: libroId });
+        res.json({ message: 'Libro actualizado exitosamente', id_libro: id_libro });
     });
 }
 
 // Eliminar un libro
 function eliminarLibro(req, res) {
-    const libroId = req.params.id;
+    const id_libro = req.params.id;
 
-    Libro.eliminarLibro(libroId, (err, result) => {
+    Libro.eliminarLibro(id_libro, (err, result) => {
         if (err) {
             console.error('Error al eliminar el libro:', err);
             res.status(500).send('Error al eliminar el libro');
             return;
         }
-        res.json({ message: 'Libro eliminado exitosamente', libroId: libroId });
+        res.json({ message: 'Libro eliminado exitosamente', id_libro: id_libro });
     });
 }
 
