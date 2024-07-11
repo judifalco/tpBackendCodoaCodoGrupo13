@@ -39,7 +39,7 @@ CREATE TABLE `libros` (
 
 LOCK TABLES `libros` WRITE;
 /*!40000 ALTER TABLE `libros` DISABLE KEYS */;
-INSERT INTO `libros` VALUES (1,'Ultimos dias en Berlín','nsnc',1),(2,'El libro negro de las horas','nsnc',2),(3,'El jardin de las mariposas','nsnc',3),(4,'El cuco de cristal','nsnc',4),(5,'El problema de los tres cuerpos','nsnc',5),(6,'Todos somos villanos','nsnc',6),(7,'Entre nosotros, la luna','nsnc',7),(8,'El arte de escucharte','nsnc',8),(9,'El gato que amaba los libros','nsnc',9),(10,'La casa neville 2 no quieras nada vil','nsnc',10),(11,'El poder de las palabras','nsnc',11),(12,'Damas de lo extraño','nsnc',12);
+INSERT INTO `libros` VALUES (1,'Ultimos dias en Berlín','nsnc',1,15.99),(2,'El libro negro de las horas','nsnc',2,15.99),(3,'El jardin de las mariposas','nsnc',3,15.99),(4,'El cuco de cristal','nsnc',4,15.99),(5,'El problema de los tres cuerpos','nsnc',5,15.99),(6,'Todos somos villanos','nsnc',6,15.99),(7,'Entre nosotros, la luna','nsnc',7,15.99),(8,'El arte de escucharte','nsnc',8,15.99),(9,'El gato que amaba los libros','nsnc',9,15.99),(10,'La casa neville 2 no quieras nada vil','nsnc',10,15.99),(11,'El poder de las palabras','nsnc',11,15.99),(12,'Damas de lo extraño','nsnc',12,15.99);
 /*!40000 ALTER TABLE `libros` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
