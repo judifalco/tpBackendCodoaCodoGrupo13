@@ -7,7 +7,7 @@ function obtenerPedidos(req, res) {
     Pedido.obtenerPedidos((err, pedidos) => {
         if (err) {
             console.error('Error al obtener los pedidos:', err);
-            res.status(500).send('Error al obtener los pedidos', err);
+            res.status(500).send('Error al obtener los pedidos');
             return;
         }
         res.json(pedidos);
