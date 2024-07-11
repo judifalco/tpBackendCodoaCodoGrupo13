@@ -22,7 +22,7 @@ function crearPedido(req, res) {
     Pedido.crearPedido(pedidoData, (err, result) => {
         if (err) {
             console.error('Error al crear un nuevo pedido:', err);
-            res.status(500).send('Error al crear un nuevo pedido', err);
+            res.status(500).send('Error al crear un nuevo pedido');
             return;
         }
         res.status(201).json({ message: 'Pedido creado exitosamente', id_pedido: result.insertId });
@@ -38,7 +38,7 @@ function actualizarPedido(req, res) {
     Pedido.actualizarPedido(id_pedido, pedidoData, (err, result) => {
         if (err) {
             console.error('Error al actualizar el pedido:', err);
-            res.status(500).send('Error al actualizar el pedido', err);
+            res.status(500).send('Error al actualizar el pedido');
             return;
         }
         res.json({ message: 'Pedido actualizado exitosamente', id_pedido: id_pedido });
@@ -52,7 +52,7 @@ function eliminarPedido(req, res) {
     Pedido.eliminarPedido(id_pedido, (err, result) => {
         if (err) {
             console.error('Error al eliminar el pedido:', err);
-            res.status(500).send('Error al eliminar el pedido', err);
+            res.status(500).send('Error al eliminar el pedido');
             return;
         }
         res.json({ message: 'Pedido eliminado exitosamente', id_pedido: id_pedido });
