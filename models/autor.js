@@ -58,7 +58,7 @@ function actualizarAutor(autorId, autorData, callback) {
 
 // Eliminar un autor
 function eliminarAutor(autorId, callback) {
-    const sql = 'DELETE FROM autores WHERE id = ?';
+    const sql = 'DELETE FROM autores WHERE id_autor = ?';
     connection.query(sql, [autorId], (err, result) => {
         if (err) {
             callback(err, null);
