@@ -44,10 +44,10 @@ function crearAutor(autorData, callback) {
 }
 
 // Actualizar un autor existente
-function actualizarAutor(autorId, autorData, callback) {
+function actualizarAutor(id_autor, autorData, callback) {
     const { nombre, apellido, fecha_nacimiento } = autorData;
-    const sql = 'UPDATE autores SET nombre = ?, apellido = ?, fecha_nacimiento = ? WHERE id = ?';
-    connection.query(sql, [nombre, apellido, fecha_nacimiento, autorId], (err, result) => {
+    const sql = 'UPDATE autores SET nombre = ?, apellido = ?, fecha_nacimiento = ? WHERE id_autor = ?';
+    connection.query(sql, [nombre, apellido, fecha_nacimiento, id_autor], (err, result) => {
         if (err) {
             callback(err, null);
             return;
@@ -57,9 +57,9 @@ function actualizarAutor(autorId, autorData, callback) {
 }
 
 // Eliminar un autor
-function eliminarAutor(autorId, callback) {
+function eliminarAutor(id_autor, callback) {
     const sql = 'DELETE FROM autores WHERE id_autor = ?';
-    connection.query(sql, [autorId], (err, result) => {
+    connection.query(sql, [id_autor], (err, result) => {
         if (err) {
             callback(err, null);
             return;
