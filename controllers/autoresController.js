@@ -7,7 +7,7 @@ function obtenerAutores(req, res) {
     Autor.obtenerAutores((err, autores) => {
         if (err) {
             console.error('Error al obtener los autores:', err);
-            res.status(500).send('Error al obtener los autores');
+            res.status(500).send('Error al obtener los autores', err);
             return;
         }
         res.json(autores);
@@ -22,7 +22,7 @@ function crearAutor(req, res) {
     Autor.crearAutor(autorData, (err, result) => {
         if (err) {
             console.error('Error al crear un nuevo autor:', err);
-            res.status(500).send('Error al crear un nuevo autor');
+            res.status(500).send('Error al crear un nuevo autor', err);
             return;
         }
         res.status(201).json({ message: 'Autor creado exitosamente', id_autor: result.insertId });
@@ -38,7 +38,7 @@ function actualizarAutor(req, res) {
     Autor.actualizarAutor(id_autor, autorData, (err, result) => {
         if (err) {
             console.error('Error al actualizar el autor:', err);
-            res.status(500).send('Error al actualizar el autor');
+            res.status(500).send('Error al actualizar el autor', err);
             return;
         }
         res.json({ message: 'Autor actualizado exitosamente', id_autor: id_autor });
@@ -52,7 +52,7 @@ function eliminarAutor(req, res) {
     Autor.eliminarAutor(id_autor, (err, result) => {
         if (err) {
             console.error('Error al eliminar el autor:', err);
-            res.status(500).send('Error al eliminar el autor');
+            res.status(500).send('Error al eliminar el autor', err);
             return;
         }
         res.json({ message: 'Autor eliminado exitosamente', id_autor: id_autor });
