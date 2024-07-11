@@ -32,9 +32,9 @@ function obtenerPedidos(callback) {
 
 // Crear un nuevo pedido
 function crearPedido(pedidoData, callback) {
-    const { cliente_id, libro_id, fecha_pedido } = pedidoData;
-    const sql = 'INSERT INTO pedidos (cliente_id, libro_id, fecha_pedido) VALUES (?, ?, ?)';
-    connection.query(sql, [cliente_id, libro_id, fecha_pedido], (err, result) => {
+    const { id_cliente, id_libro, fecha_pedido } = pedidoData;
+    const sql = 'INSERT INTO pedidos (id_cliente, id_libro, fecha_pedido) VALUES (?, ?, ?)';
+    connection.query(sql, [id_cliente, id_libro, fecha_pedido], (err, result) => {
         if (err) {
             callback(err, null);
             return;
@@ -45,9 +45,9 @@ function crearPedido(pedidoData, callback) {
 
 // Actualizar un pedido existente
 function actualizarPedido(pedidoId, pedidoData, callback) {
-    const { cliente_id, libro_id, fecha_pedido } = pedidoData;
-    const sql = 'UPDATE pedidos SET cliente_id = ?, libro_id = ?, fecha_pedido = ? WHERE id = ?';
-    connection.query(sql, [cliente_id, libro_id, fecha_pedido, pedidoId], (err, result) => {
+    const { id_cliente, id_libro, fecha_pedido } = pedidoData;
+    const sql = 'UPDATE pedidos SET id_cliente = ?, id_libro = ?, fecha_pedido = ? WHERE id_pedido = ?';
+    connection.query(sql, [id_cliente, id_libro, fecha_pedido, pedidoId], (err, result) => {
         if (err) {
             callback(err, null);
             return;
