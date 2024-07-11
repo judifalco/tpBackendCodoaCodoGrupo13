@@ -33,7 +33,7 @@ function obtenerPedidos(callback) {
 // Crear un nuevo pedido
 function crearPedido(pedidoData, callback) {
     const { id_cliente, id_libro, fecha_pedido } = pedidoData;
-    const sql = 'INSERT INTO pedidos (id_pedido, id_cliente, id_libro, fecha_pedido) VALUES (?, ?, ?, ?)';
+    const sql = 'INSERT INTO pedidos (id_pedido, id_cliente, id_libro, fecha_pedido) VALUES (0, ?, ?, ?)';
     connection.query(sql, [id_cliente, id_libro, fecha_pedido], (err, result) => {
         if (err) {
             callback(err, null);
