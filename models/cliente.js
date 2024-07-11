@@ -58,7 +58,7 @@ function actualizarCliente(clienteId, clienteData, callback) {
 
 // Eliminar un cliente
 function eliminarCliente(clienteId, callback) {
-    const sql = 'DELETE FROM clientes WHERE id = ?';
+    const sql = 'DELETE FROM clientes WHERE id_cliente = ?';
     connection.query(sql, [clienteId], (err, result) => {
         if (err) {
             callback(err, null);
