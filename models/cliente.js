@@ -44,10 +44,10 @@ function crearCliente(clienteData, callback) {
 }
 
 // Actualizar un cliente existente
-function actualizarCliente(clienteId, clienteData, callback) {
+function actualizarCliente(id_cliente, clienteData, callback) {
     const { nombre, apellido, email } = clienteData;
-    const sql = 'UPDATE clientes SET nombre = ?, apellido = ?, email = ? WHERE id = ?';
-    connection.query(sql, [nombre, apellido, email, clienteId], (err, result) => {
+    const sql = 'UPDATE clientes SET nombre = ?, apellido = ?, email = ? WHERE id_cliente = ?';
+    connection.query(sql, [nombre, apellido, email, id_cliente], (err, result) => {
         if (err) {
             callback(err, null);
             return;
@@ -57,9 +57,9 @@ function actualizarCliente(clienteId, clienteData, callback) {
 }
 
 // Eliminar un cliente
-function eliminarCliente(clienteId, callback) {
+function eliminarCliente(id_cliente, callback) {
     const sql = 'DELETE FROM clientes WHERE id_cliente = ?';
-    connection.query(sql, [clienteId], (err, result) => {
+    connection.query(sql, [id_cliente], (err, result) => {
         if (err) {
             callback(err, null);
             return;
