@@ -32,9 +32,9 @@ function obtenerLibros(callback) {
 
 // Crear un nuevo libro
 function crearLibro(libroData, callback) {
-    const { titulo, genero, precio, id_autor } = libroData;
-    const sql = 'INSERT INTO libros (titulo, genero, precio, id_autor) VALUES (?, ?, ?, ?)';
-    connection.query(sql, [titulo, genero, precio, id_autor], (err, result) => {
+    const { titulo, genero, id_autor, precio } = libroData;
+    const sql = 'INSERT INTO libros (titulo, genero, id_autor, precio) VALUES (?, ?, ?, ?)';
+    connection.query(sql, [titulo, genero, id_autor, precio], (err, result) => {
         if (err) {
             callback(err, null);
             return;
@@ -45,9 +45,9 @@ function crearLibro(libroData, callback) {
 
 // Actualizar un libro existente
 function actualizarLibro(libroId, libroData, callback) {
-    const { titulo, genero, precio, id_autor } = libroData;
+    const { titulo, genero, id_autor, precio } = libroData;
     const sql = 'UPDATE libros SET titulo = ?, genero = ?, precio = ?, id_autor = ? WHERE id_libro = ?';
-    connection.query(sql, [titulo, genero, precio, id_autor, libroId], (err, result) => {
+    connection.query(sql, [titulo, genero, id_autor, precio, libroId], (err, result) => {
         if (err) {
             callback(err, null);
             return;
