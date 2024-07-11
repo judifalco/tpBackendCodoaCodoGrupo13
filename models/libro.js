@@ -58,7 +58,7 @@ function actualizarLibro(libroId, libroData, callback) {
 
 // Eliminar un libro
 function eliminarLibro(libroId, callback) {
-    const sql = 'DELETE FROM libros WHERE id = ?';
+    const sql = 'DELETE FROM libros WHERE id_libro = ?';
     connection.query(sql, [libroId], (err, result) => {
         if (err) {
             callback(err, null);
