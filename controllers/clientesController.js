@@ -7,7 +7,7 @@ function obtenerClientes(req, res) {
     Cliente.obtenerClientes((err, clientes) => {
         if (err) {
             console.error('Error al obtener los clientes:', err);
-            res.status(500).send('Error al obtener los clientes', err);
+            res.status(500).send('Error al obtener los clientes');
             return;
         }
         res.json(clientes);
