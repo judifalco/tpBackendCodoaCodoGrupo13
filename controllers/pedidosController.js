@@ -16,8 +16,8 @@ function obtenerPedidos(req, res) {
 
 // Crear un nuevo pedido
 function crearPedido(req, res) {
-    const { cliente_id, libro_id, fecha_pedido } = req.body;
-    const pedidoData = { cliente_id, libro_id, fecha_pedido };
+    const { id_cliente, id_libro, fecha_pedido } = req.body;
+    const pedidoData = { id_cliente, id_libro, fecha_pedido };
 
     Pedido.crearPedido(pedidoData, (err, result) => {
         if (err) {
@@ -25,37 +25,37 @@ function crearPedido(req, res) {
             res.status(500).send('Error al crear un nuevo pedido');
             return;
         }
-        res.status(201).json({ message: 'Pedido creado exitosamente', pedidoId: result.insertId });
+        res.status(201).json({ message: 'Pedido creado exitosamente', id_pedido: result.insertId });
     });
 }
 
 // Actualizar un pedido existente
 function actualizarPedido(req, res) {
-    const pedidoId = req.params.id;
-    const { cliente_id, libro_id, fecha_pedido } = req.body;
-    const pedidoData = { cliente_id, libro_id, fecha_pedido };
+    const id_pedido = req.params.id;
+    const { id_cliente, id_libro, fecha_pedido } = req.body;
+    const pedidoData = { id_cliente, id_libro, fecha_pedido };
 
-    Pedido.actualizarPedido(pedidoId, pedidoData, (err, result) => {
+    Pedido.actualizarPedido(id_pedido, pedidoData, (err, result) => {
         if (err) {
             console.error('Error al actualizar el pedido:', err);
             res.status(500).send('Error al actualizar el pedido');
             return;
         }
-        res.json({ message: 'Pedido actualizado exitosamente', pedidoId: pedidoId });
+        res.json({ message: 'Pedido actualizado exitosamente', id_pedido: id_pedido });
     });
 }
 
 // Eliminar un pedido
 function eliminarPedido(req, res) {
-    const pedidoId = req.params.id;
+    const id_pedido = req.params.id;
 
-    Pedido.eliminarPedido(pedidoId, (err, result) => {
+    Pedido.eliminarPedido(id_pedido, (err, result) => {
         if (err) {
             console.error('Error al eliminar el pedido:', err);
             res.status(500).send('Error al eliminar el pedido');
             return;
         }
-        res.json({ message: 'Pedido eliminado exitosamente', pedidoId: pedidoId });
+        res.json({ message: 'Pedido eliminado exitosamente', id_pedido: id_pedido });
     });
 }
 
