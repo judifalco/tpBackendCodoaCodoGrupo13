@@ -58,7 +58,7 @@ function actualizarPedido(pedidoId, pedidoData, callback) {
 
 // Eliminar un pedido
 function eliminarPedido(pedidoId, callback) {
-    const sql = 'DELETE FROM pedidos WHERE id = ?';
+    const sql = 'DELETE FROM pedidos WHERE id_pedido = ?';
     connection.query(sql, [pedidoId], (err, result) => {
         if (err) {
             callback(err, null);
