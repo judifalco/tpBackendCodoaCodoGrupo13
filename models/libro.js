@@ -44,10 +44,10 @@ function crearLibro(libroData, callback) {
 }
 
 // Actualizar un libro existente
-function actualizarLibro(libroId, libroData, callback) {
+function actualizarLibro(id_libro, libroData, callback) {
     const { titulo, genero, id_autor, precio } = libroData;
     const sql = 'UPDATE libros SET titulo = ?, genero = ?, precio = ?, id_autor = ? WHERE id_libro = ?';
-    connection.query(sql, [titulo, genero, id_autor, precio, libroId], (err, result) => {
+    connection.query(sql, [titulo, genero, id_autor, id_libro, precio], (err, result) => {
         if (err) {
             callback(err, null);
             return;
@@ -57,9 +57,9 @@ function actualizarLibro(libroId, libroData, callback) {
 }
 
 // Eliminar un libro
-function eliminarLibro(libroId, callback) {
+function eliminarLibro(id_libro, callback) {
     const sql = 'DELETE FROM libros WHERE id_libro = ?';
-    connection.query(sql, [libroId], (err, result) => {
+    connection.query(sql, [id_libro], (err, result) => {
         if (err) {
             callback(err, null);
             return;
