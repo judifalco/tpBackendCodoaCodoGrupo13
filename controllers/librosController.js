@@ -7,7 +7,7 @@ function obtenerLibros(req, res) {
     Libro.obtenerLibros((err, libros) => {
         if (err) {
             console.error('Error al obtener los libros:', err);
-            res.status(500).send('Error al obtener los libros');
+            res.status(500).send('Error al obtener los libros', err);
             return;
         }
         res.json(libros);
@@ -16,13 +16,13 @@ function obtenerLibros(req, res) {
 
 // Crear un nuevo libro
 function crearLibro(req, res) {
-    const { titulo, genero, precio, id_autor } = req.body;
-    const libroData = { titulo, genero, precio, id_autor };
+    const { titulo, genero, id_autor, precio } = req.body;
+    const libroData = { titulo, genero, id_autor, precio };
 
     Libro.crearLibro(libroData, (err, result) => {
         if (err) {
             console.error('Error al crear un nuevo libro:', err);
-            res.status(500).send('Error al crear un nuevo libro');
+            res.status(500).send('Error al crear un nuevo libro', err);
             return;
         }
         res.status(201).json({ message: 'Libro creado exitosamente', id_libro: result.insertId });
@@ -32,8 +32,8 @@ function crearLibro(req, res) {
 // Actualizar un libro existente
 function actualizarLibro(req, res) {
     const id_libro = req.params.id;
-    const { titulo, genero, precio, id_autor } = req.body;
-    const libroData = { titulo, genero, precio, id_autor };
+    const { titulo, genero, id_autor, precio } = req.body;
+    const libroData = { titulo, genero, id_autor, precio };
 
     Libro.actualizarLibro(id_libro, libroData, (err, result) => {
         if (err) {
@@ -52,7 +52,7 @@ function eliminarLibro(req, res) {
     Libro.eliminarLibro(id_libro, (err, result) => {
         if (err) {
             console.error('Error al eliminar el libro:', err);
-            res.status(500).send('Error al eliminar el libro');
+            res.status(500).send('Error al eliminar el libro', err);
             return;
         }
         res.json({ message: 'Libro eliminado exitosamente', id_libro: id_libro });
