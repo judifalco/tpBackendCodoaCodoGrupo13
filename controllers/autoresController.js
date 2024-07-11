@@ -7,7 +7,7 @@ function obtenerAutores(req, res) {
     Autor.obtenerAutores((err, autores) => {
         if (err) {
             console.error('Error al obtener los autores:', err);
-            res.status(500).send('Error al obtener los autores', err);
+            res.status(500).send('Error al obtener los autores');
             return;
         }
         res.json(autores);
