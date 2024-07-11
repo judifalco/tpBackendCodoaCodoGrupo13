@@ -7,7 +7,7 @@ function obtenerLibros(req, res) {
     Libro.obtenerLibros((err, libros) => {
         if (err) {
             console.error('Error al obtener los libros:', err);
-            res.status(500).send('Error al obtener los libros', err);
+            res.status(500).send('Error al obtener los libros');
             return;
         }
         res.json(libros);
