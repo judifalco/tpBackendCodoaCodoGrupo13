@@ -22,7 +22,7 @@ function crearLibro(req, res) {
     Libro.crearLibro(libroData, (err, result) => {
         if (err) {
             console.error('Error al crear un nuevo libro:', err);
-            res.status(500).send('Error al crear un nuevo libro', err);
+            res.status(500).send('Error al crear un nuevo libro');
             return;
         }
         res.status(201).json({ message: 'Libro creado exitosamente', id_libro: result.insertId });
@@ -38,7 +38,7 @@ function actualizarLibro(req, res) {
     Libro.actualizarLibro(id_libro, libroData, (err, result) => {
         if (err) {
             console.error('Error al actualizar el libro:', err);
-            res.status(500).send('Error al actualizar el libro',err);
+            res.status(500).send('Error al actualizar el libro');
             return;
         }
         res.json({ message: 'Libro actualizado exitosamente', id_libro: id_libro });
@@ -52,7 +52,7 @@ function eliminarLibro(req, res) {
     Libro.eliminarLibro(id_libro, (err, result) => {
         if (err) {
             console.error('Error al eliminar el libro:', err);
-            res.status(500).send('Error al eliminar el libro', err);
+            res.status(500).send('Error al eliminar el libro');
             return;
         }
         res.json({ message: 'Libro eliminado exitosamente', id_libro: id_libro });
