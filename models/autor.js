@@ -2,7 +2,7 @@ const mysql = require('mysql');
 
 // Configuración de la conexión a MySQL
 const connection = mysql.createConnection({
-    host: 'localhost',
+    host: '127.0.0.1',
     user: 'root',
     password: 'CaC2024',
     database: 'tienda_libros'
