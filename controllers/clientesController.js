@@ -25,37 +25,37 @@ function crearCliente(req, res) {
             res.status(500).send('Error al crear un nuevo cliente');
             return;
         }
-        res.status(201).json({ message: 'Cliente creado exitosamente', clienteId: result.insertId });
+        res.status(201).json({ message: 'Cliente creado exitosamente', id_cliente: result.insertId });
     });
 }
 
 // Actualizar un cliente existente
 function actualizarCliente(req, res) {
-    const clienteId = req.params.id;
+    const id_cliente = req.params.id;
     const { nombre, apellido, email } = req.body;
     const clienteData = { nombre, apellido, email };
 
-    Cliente.actualizarCliente(clienteId, clienteData, (err, result) => {
+    Cliente.actualizarCliente(id_cliente, clienteData, (err, result) => {
         if (err) {
             console.error('Error al actualizar el cliente:', err);
             res.status(500).send('Error al actualizar el cliente');
             return;
         }
-        res.json({ message: 'Cliente actualizado exitosamente', clienteId: clienteId });
+        res.json({ message: 'Cliente actualizado exitosamente', id_cliente: id_cliente });
     });
 }
 
 // Eliminar un cliente
 function eliminarCliente(req, res) {
-    const clienteId = req.params.id;
+    const id_cliente = req.params.id;
 
-    Cliente.eliminarCliente(clienteId, (err, result) => {
+    Cliente.eliminarCliente(id_cliente, (err, result) => {
         if (err) {
             console.error('Error al eliminar el cliente:', err);
             res.status(500).send('Error al eliminar el cliente');
             return;
         }
-        res.json({ message: 'Cliente eliminado exitosamente', clienteId: clienteId });
+        res.json({ message: 'Cliente eliminado exitosamente', id_cliente: id_cliente });
     });
 }
 
