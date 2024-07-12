@@ -44,10 +44,10 @@ function crearPedido(pedidoData, callback) {
 }
 
 // Actualizar un pedido existente
-function actualizarPedido(pedidoId, pedidoData, callback) {
+function actualizarPedido(id_pedido, pedidoData, callback) {
     const { id_cliente, id_libro, fecha_pedido } = pedidoData;
     const sql = 'UPDATE pedidos SET id_cliente = ?, id_libro = ?, fecha_pedido = ? WHERE id_pedido = ?';
-    connection.query(sql, [id_cliente, id_libro, fecha_pedido, pedidoId], (err, result) => {
+    connection.query(sql, [id_cliente, id_libro, fecha_pedido, id_pedido], (err, result) => {
         if (err) {
             callback(err, null);
             return;
@@ -57,9 +57,9 @@ function actualizarPedido(pedidoId, pedidoData, callback) {
 }
 
 // Eliminar un pedido
-function eliminarPedido(pedidoId, callback) {
+function eliminarPedido(id_pedido, callback) {
     const sql = 'DELETE FROM pedidos WHERE id_pedido = ?';
-    connection.query(sql, [pedidoId], (err, result) => {
+    connection.query(sql, [id_pedido], (err, result) => {
         if (err) {
             callback(err, null);
             return;
