@@ -44,10 +44,10 @@ function crearLibro(libroData, callback) {
 }
 
 // Actualizar un libro existente
-function actualizarLibro(id_libro, libroData, callback) {
+function actualizarAutor(id_libro, libroData, callback) {
     const { titulo, genero, id_autor, precio } = libroData;
-    const sql = 'UPDATE libros SET titulo = ?, genero = ?, precio = ?, id_autor = ? WHERE id_libro = ?';
-    connection.query(sql, [id_libro, titulo, genero, id_autor, precio], (err, result) => {
+    const sql = 'UPDATE libros SET titulo = ?, genero = ?, id_autor = ?, precio = ? WHERE id_libro = ?';
+    connection.query(sql, [titulo, genero, id_autor, precio], (err, result) => {
         if (err) {
             callback(err, null);
             return;
